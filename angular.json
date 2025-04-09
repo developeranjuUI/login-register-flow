@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ecommerce:build:production"
+              "browserTarget": "login-register:build:production"
             },
             "development": {
-              "browserTarget": "ecommerce:build:development"
+              "browserTarget": "login-register:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ecommerce:build"
+            "browserTarget": "login-register:build"
           }
         },
         "test": {
@@ -110,7 +110,7 @@
       }
     }
   },
-  "defaultProject": "ecommerce"
+  "defaultProject": "login-register"
 }
 
 {
