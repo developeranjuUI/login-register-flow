@@ -1,0 +1,27 @@
+.login_container{
+    margin: 2% auto;
+}
+.card-footer{
+    background-color: transparent;
+    padding-right: 0;
+    border-top: 0;
+    display: flex;
+    justify-content: space-between;
+    .btn-outline-none{
+        padding: 0;
+        font-weight: 600;
+        &:focus{
+            box-shadow: none;
+        }
+    }
+}
+.login_container{
+    .login_text{
+        font-size: 1.2rem;
+        color: #a5a5a5;
+        padding: 0.8rem 0;
+        display: block;
+    }
+}
+
+

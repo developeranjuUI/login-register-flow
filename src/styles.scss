@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+body{
+    padding-top: 56px;
+}
+img{
+    width: 100%;
+}
+.form-floating {
+	>.form-control {
+		&:focus {
+			~ {
+				label {
+					color: #242424;
+					font-size: 1.1rem;
+					padding: 0 10px;
+					background-color: #fff;
+					opacity: 1;
+					top: -5px;
+					left: 12px;
+					height: inherit;
+					text-align: left;
+				}
+			}
+			box-shadow: none;
+			border-color: #ccc;
+		}
+		&:not(:placeholder-shown) {
+			~ {
+				label {
+					color: #242424;
+					font-size: 1.1rem;
+					padding: 0 10px;
+					background-color: #fff;
+					opacity: 1;
+					top: -5px;
+					left: 12px;
+					height: inherit;
+					text-align: left;
+				}
+			}
+		}
+		padding: 0.5rem 1.4rem;
+		&:active {
+			&:focus {
+				box-shadow: none;
+				border-color: #ccc;
+			}
+		}
+	}
+	>label {
+		font-size: 1.1rem;
+		left: 12px;
+	}
+}
+.btn-dark {
+	padding: 0.8rem 5rem;
+    text-transform: uppercase;
+	&:focus {
+		box-shadow: none;
+	}
+	&:active {
+		&:focus {
+			box-shadow: none;
+		}
+	}
+}
+
+
+
+h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 1rem 0;
+}
+fa-icon{
+    font-size: 26px;
+}

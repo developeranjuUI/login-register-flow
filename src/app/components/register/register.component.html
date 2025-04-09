@@ -1,0 +1,126 @@
+<!-- <div class="p-4 max-w-md mx-auto">
+    <h2 class="text-2xl font-semibold mb-4">Register</h2>
+  
+    <form (ngSubmit)="onSubmit()">
+      <input type="text" [(ngModel)]="name" name="name" placeholder="Name" required class="input-field" />
+      <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required class="input-field" />
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required class="input-field" />
+      
+      <button type="submit" class="btn-primary">Register</button>
+  
+      <p class="text-green-500 mt-2" *ngIf="success">{{ success }}</p>
+      <p class="text-red-500 mt-2" *ngIf="error">{{ error }}</p>
+    </form>
+  </div>
+   -->
+
+   <!-- reactive form -->
+  <div class="container">
+    <div class="login_container">
+        <div class="row justify-content-center">
+            <div class="card shadow w-50 h-100">
+                <div class="card-body my-auto text-center">
+                    <!-- <div>
+                        <fa-icon [icon]="faLock"></fa-icon>
+                    </div> -->
+                    <h1>Register</h1>
+                    <!-- <span class="login_text">Please Enter Your Login Details</span> -->
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <div class="form-floating mb-3">
+                            <input type="name" class="form-control" id="name" placeholder="Enter Name" formControlName="name">
+                            <label for="name">Name</label>
+                            <div class="text-danger text-sm" *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+                              Name should contain only letters
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+                          <label for="email">Email</label>
+                          <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger text-sm">
+                              Email must be in a valid format (e.g. someone@example.com)
+                          </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="floatingInput" placeholder="Mobile" formControlName="mobile">
+                          <label for="floatingInput">Mobile Number</label>
+                          <div class="text-danger text-sm" *ngIf="registerForm.get('mobile')?.invalid && registerForm.get('mobile')?.touched">
+                            Enter 10 digit mobile number
+                          </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password" (input)="onPasswordInput(); checkPasswords()">
+                            <label for="password">Password</label>
+                            <!-- <div class="text-danger" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+                                Valid passsword is required
+                            </div> -->
+                            <!-- <div class="mt-2 text-sm">
+                              <small [ngClass]="getValidationClass('minLength')">
+                                ✔ At least 8 characters
+                              </small><br />
+                            
+                              <small [ngClass]="getValidationClass('uppercase')">
+                                ✔ Has at least 1 uppercase letter
+                              </small><br />
+                            
+                              <small [ngClass]="getValidationClass('number')">
+                                ✔ Has at least 1 number
+                              </small><br />
+                            
+                              <small [ngClass]="getValidationClass('specialChar')">
+                                ✔ Use at least 1 special character:
+                                <span>$ % / ( ) [ ] {{ '{' }} {{ '}' }} = ? ! . , - _ * @ | + ~ #</span>
+                              </small>
+                            </div> -->
+                            <div class="mt-2 text-sm text-start" aria-live="polite">
+                              <small [ngClass]="getValidationClass('minLength')">
+                                {{ passwordValidations.minLength ? '✔' : '❌' }} At least 8 characters
+                              </small><br />
+                            
+                              <small [ngClass]="getValidationClass('uppercase')">
+                                {{ passwordValidations.uppercase ? '✔' : '❌' }} Has at least 1 uppercase letter
+                              </small><br />
+                            
+                              <small [ngClass]="getValidationClass('number')">
+                                {{ passwordValidations.number ? '✔' : '❌' }} Has at least 1 number
+                              </small><br />
+                            
+                              <small [ngClass]="getValidationClass('specialChar')">
+                                {{ passwordValidations.specialChar ? '✔' : '❌' }} Use at least 1 special character:
+                                <span>$ % / ( ) [ ] {{ '{' }} {{ '}' }} = ? ! . , - _ * @ | + ~ #</span>
+                              </small>
+                            </div>
+                            
+                            <!-- Password Strength Message -->
+                            <div
+                              [ngClass]="{
+                                'text-danger': registerForm.get('password')?.invalid && registerForm.get('password')?.touched,
+                                'text-success': registerForm.get('password')?.valid && registerForm.get('password')?.touched
+                              }"
+                              class="mt-2 text-sm">
+                              <ng-container *ngIf="registerForm.get('password')?.valid && registerForm.get('password')?.touched">
+                                Strong password ✅
+                              </ng-container>
+                              <ng-container *ngIf="registerForm.get('password')?.hasError('passwordComplexity') && registerForm.get('password')?.touched">
+                                Password must contain letters, numbers, and symbols (min 8 chars)
+                              </ng-container>
+                            </div>
+                        </div>
+                        <div class="form-floating">
+                          <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" (input)="checkPasswords()">
+                          <label for="confirmPassword">Confirm Password</label>
+                          <div class="text-danger mt-1 text-sm" *ngIf="passwordMismatch && registerForm.get('confirmPassword')?.touched">
+                            Passwords do not match
+                          </div>
+                        </div>
+                        <div class="my-3">
+                            <button class="btn btn-dark" type="submit" [disabled]="registerForm.invalid">Register</button>
+                        </div>
+                        <p class="text-success mt-2" *ngIf="success">{{ success }}</p>
+                        <p class="text-danger mt-2" *ngIf="error">{{ error }}</p>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

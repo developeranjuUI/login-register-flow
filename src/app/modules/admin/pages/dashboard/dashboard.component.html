@@ -1,0 +1,14 @@
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Navbar</a>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="p-4">
+    <h1 class="text-3xl font-bold">Welcome to the Admin Dashboard</h1>
+    <p class="mt-2">You are logged in as: {{ user?.email }}</p>
+    <button class="btn-primary mt-4" (click)="logout()">Logout</button>
+</div>

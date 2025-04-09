@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="login_container">
+        <div class="row justify-content-center">
+            <div class="card shadow w-50 h-100">
+                <div class="card-body my-auto text-center">
+                    <!-- <div>
+                        <fa-icon [icon]="faLock"></fa-icon>
+                    </div> -->
+                    <h1>Login</h1>
+                    <span class="login_text">Please Enter Your Login Details</span>
+                    <div *ngIf="errorMessage" class="text-danger mt-2">
+                        {{ errorMessage }}
+                      </div>
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
+                            <label for="floatingInput">Email address</label>
+                            <div class="text-danger text-start" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                                Valid email is required
+                            </div>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
+                            <label for="floatingPassword">Password</label>
+                            <div class="text-danger text-start" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                                Valid password is required
+                            </div>
+                        </div>
+                        <div class="my-3">
+                            <button class="btn btn-dark" type="submit">Login</button>
+                        </div>
+                    </form>
+                    <div class="text-end card-footer">
+                        <a routerLink="../register" class="btn btn-outline-none">Register</a>
+                        <a routerLink="../forgot-password" class="btn btn-outline-none">Forgot Password</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.navbar-dark {
+    .navbar-nav{
+        .nav-item.active {
+            .nav-link{
+                color: #fff;
+            }
+        }
+    }
+} 
+.logout-btn{
+    text-transform: uppercase;
+    margin-left: 1rem;
+}
